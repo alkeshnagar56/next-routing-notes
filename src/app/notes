@@ -1,0 +1,36 @@
+in next, for routing, we have different files, such as:
+1. page.js
+    all the components have this file and it will me mounted in the screen
+
+2. Layout.js
+    it is like a parent file wich will render on every subordinate child component and the bottom most file from the routing tree gets the priority. means if any child component have this layout .js file then the parent layout will also get place on the screen  
+
+3. template.js  
+    it will refresh itself whenever we nevigate on any component and replace the laout file of the component, it refrsh and unmount all the states.
+
+4. not-found.js
+    this page will be rendered if the component doesnot exist. we can define our own not found page, and customise by giving the file name not-found.jsx or else next provide one 404 not found page by default.
+
+5. loading.jsx
+    it will be rendered while the component is loading the data. which makes assure to useres that the website is continously working and makes a good impression on the users.
+
+6. error.jsx
+     NOTE:- to use reset button , we also have to set the page.jsx component to the client component, else it would not refresh the page.
+
+    error works by herarchy. and if we want to use it for the layout as well, we have to use it as a parent of the layout, that means, if we want to use this error handeling for the layout of [productId] component, we need to use it in the products solder, as it is a parent of [productId].
+    
+    to understand this error page, go to products/[productId]/reviews/[reviewId]/error.jsx
+
+7. default.jsx
+    this file can be used as a fallback if the page doesnot work in any condition, we can see the examples of this at src\app\complex-dashboard\@login\default.jsx
+
+
+
+*** intercepted routing ***
+it could be used for the login page or any image or product where we dont want the entire page to be reload and change, but the boiler plate type comes on the screen and we can see the login page, but when we reload the page. the url will be updated to the previous home page. 
+
+*** intercepting routes conventions ***
+    (.) used to match segments at the same level.
+    (..) used to match segments one level above.
+    (..)(..) used to match segments two level above.
+    (...)to match segments from the root app directory.
